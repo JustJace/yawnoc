@@ -26,8 +26,8 @@ export class GameOfLifeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this._height = ~~(this.canvas.nativeElement.clientHeight / 4);
-    this._width = ~~(this.canvas.nativeElement.clientWidth / 4);
+    this._height = ~~(this.canvas.nativeElement.clientHeight);
+    this._width = ~~(this.canvas.nativeElement.clientWidth);
     for (var r = 0; r < this._height; r++) {
       let row = [];
       for (var c = 0; c < this._width; c++) {

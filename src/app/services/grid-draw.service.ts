@@ -8,7 +8,6 @@ import { WebGlDrawService } from './web-gl-draw.service';
 export class GridDrawService {
 
   private _positionBuffer: WebGLBuffer;
-  private _colorBuffer: WebGLBuffer;
 
   constructor(private _glDraw: WebGlDrawService) { 
 
@@ -28,9 +27,9 @@ export class GridDrawService {
   }
 
   drawSquare(webGl: WebGL, options: GridDrawOptions, square: GridSquare) {
-    if (!this._positionBuffer || !this._colorBuffer) this.initBuffers(webGl);
+    if (!this._positionBuffer) this.initBuffers(webGl);
 
-    this._glDraw.triangleStrip(webGl, this._positionBuffer, 0, [0,0,0], [square.x ,square.y, 0], [0.004, 0.004, 1]);
+    this._glDraw.triangleStrip(webGl, this._positionBuffer, 0, [0,0,0], [square.x ,square.y, 0], [0.001, 0.001, 1]);
   }
 }
 
